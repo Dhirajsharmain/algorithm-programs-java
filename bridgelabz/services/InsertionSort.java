@@ -7,7 +7,7 @@
  * @since 15-06-2021 **********************************************************
  */
 
-package bridgelabz;
+package bridgelabz.services;
 
 import bridgelabz.utility.AlgoUtility;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class InsertionSort {
     }
 
     /**
-     * method for printing the array data
+     * Method for printing the array data
      */
     private static void printArray() {
         for (String i : dataArray) {

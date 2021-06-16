@@ -9,7 +9,7 @@
  * @since 15-06-2021 **********************************************************
  */
 
-package bridgelabz;
+package bridgelabz.services;
 
 import bridgelabz.utility.AlgoUtility;
 
@@ -30,9 +30,9 @@ public class Permutation {
         }
 
         for (int i = startingIndex; i < charactersArray.length; i++) {
-            //algoUtility.swap(charactersArray, startingIndex, i);
+            algoUtility.swap(charactersArray, startingIndex, i);
             permutations(charactersArray, startingIndex + 1);
-            //algoUtility.swap(charactersArray, startingIndex, i);
+            algoUtility.swap(charactersArray, startingIndex, i);
         }
     }
 

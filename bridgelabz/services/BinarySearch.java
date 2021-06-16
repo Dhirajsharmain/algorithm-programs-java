@@ -9,12 +9,12 @@
  * @since 15-06-2021 **********************************************************
  */
 
-package bridgelabz;
+package bridgelabz.services;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static bridgelabz.InsertionSort.insertionSort;
+import static bridgelabz.services.InsertionSort.insertionSort;
 import static bridgelabz.utility.AlgoUtility.fileReader;
 
 public class BinarySearch {
@@ -25,9 +25,12 @@ public class BinarySearch {
      */
     public static void main(String[] args) throws IOException {
         String[] unsortedData = fileReader("E:\\BridgeLabs Training\\Java\\Data Structure\\AlgorithmPrograms\\src\\Data.csv");
+
+        // Here insertion sort is used from InsertionSort class.
         String[] sortedData = insertionSort(unsortedData);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the ");
+
+        System.out.println("Enter the string to be search : ");
         String userInput = scanner.nextLine();
 
         int result = binarySearch(sortedData, userInput);
@@ -48,22 +51,22 @@ public class BinarySearch {
      * @return
      */
     private static int binarySearch(String[] array, String userInput) {
-        int startingIndex = 0, range = array.length - 1;
-        while (startingIndex <= range) {
-            int middle = startingIndex + (range - startingIndex) / 2;
+        int lowerIndex = 0, higherIndex = array.length - 1;
+        while (lowerIndex <= higherIndex) {
+            int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
             int result = userInput.compareTo(array[middle]);
 
-            // Check if userInput is present at middle
+            // Check if userInput is present at middle.
             if (result == 0)
                 return middle;
 
             // If userInput greater, ignore left half
             if (result > 0)
-                startingIndex = middle + 1;
+                lowerIndex = middle + 1;
 
                 // If userInput is smaller, ignore right half
             else
-                range = middle - 1;
+                higherIndex = middle - 1;
         }
 
         return -1;

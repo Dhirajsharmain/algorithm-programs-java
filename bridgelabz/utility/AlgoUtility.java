@@ -17,7 +17,7 @@ import java.io.IOException;
 public class AlgoUtility {
 
     /**
-     * Utility function to swap two elements in a array.
+     * Generics utility function to swap two elements in a array.
      *
      * @param array         : Characters array of input string
      * @param startingIndex : Index of character array from where the swap will start.
@@ -25,6 +25,19 @@ public class AlgoUtility {
      */
     public <T> void swap(T[] array, int startingIndex, int swapWithIndex) {
         T temp = array[startingIndex];
+        array[startingIndex] = array[swapWithIndex];
+        array[swapWithIndex] = temp;
+    }
+
+    /**
+     * Utility function to swap two elements in a array.
+     *
+     * @param array         : Characters array of input string
+     * @param startingIndex : Index of character array from where the swap will start.
+     * @param swapWithIndex : Index of character array to be swap with starting index.
+     */
+    public void swap(char[] array, int startingIndex, int swapWithIndex) {
+        char temp = array[startingIndex];
         array[startingIndex] = array[swapWithIndex];
         array[swapWithIndex] = temp;
     }
